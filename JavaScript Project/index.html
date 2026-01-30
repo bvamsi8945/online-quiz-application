@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <title>Online Quiz Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <div class="quiz-card">
+
+        <div id="startScreen">
+            <h2>Select Difficulty</h2>
+            <label><input type="radio" name="level" value="easy"> Easy</label><br><br>
+            <label><input type="radio" name="level" value="medium"> Medium</label><br><br>
+            <label><input type="radio" name="level" value="advanced"> Advanced</label><br><br>
+
+            <button class="btn primary" onclick="startTest()">Start Test</button>
+        </div>
+
+        <div id="quizScreen" style="display:none">
+
+            <div class="quiz-header">
+                <div>
+                    <div class="page-text">Page</div>
+                    <div class="page-number" id="pageNumber">1 / 10</div>
+                </div>
+
+                <div class="timer-circle">
+                    <span id="timer">10</span>
+                    <small>Seconds</small>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <span class="progress-label" id="progressLabel">0%</span>
+            </div>
+
+            <h3 class="question" id="questionText"></h3>
+
+            <div class="options" id="options"></div>
+
+            <div class="quiz-footer">
+                <button class="btn primary" onclick="nextQuestion()">Next</button>
+            </div>
+
+        </div>
+
+<div id="resultScreen" style="display:none">
+    <h2>Result</h2>
+
+    <p>Score: <strong><span id="score"></span> / 10</strong></p>
+    <p>Accuracy: <strong><span id="accuracy"></span>%</strong></p>
+
+    <div class="chart-wrapper">
+        <canvas id="resultChart"></canvas>
+    </div>
+</div>
+
+
+    </div>
+
+    <div class="nav-panel">
+
+        <div class="user-box">
+            <div class="avatar"></div>
+            <span class="username">BalaVamsi</span>
+        </div>
+            <button class="theme-toggle"
+            onclick="toggleTheme()"
+            title="Toggle Dark / Light Mode">
+        🌙
+    </button>
+
+        <h4 class="nav-title">Navigation Panel</h4>
+
+        <div class="nav-grid" id="navGrid">
+            <span class="nav-item" data-index="0">1</span>
+            <span class="nav-item" data-index="1">2</span>
+            <span class="nav-item" data-index="2">3</span>
+            <span class="nav-item" data-index="3">4</span>
+            <span class="nav-item" data-index="4">5</span>
+            <span class="nav-item" data-index="5">6</span>
+            <span class="nav-item" data-index="6">7</span>
+            <span class="nav-item" data-index="7">8</span>
+            <span class="nav-item" data-index="8">9</span>
+            <span class="nav-item" data-index="9">10</span>
+        </div>
+
+        <hr>
+
+        <h4 class="nav-title">Indicators</h4>
+        <ul class="legend">
+            <li><span class="box responded"></span> Responded</li>
+            <li><span class="box skipped"></span> Skipped</li>
+            <li><span class="box active"></span> Active</li>
+            <li><span class="box"></span> Unattempted</li>
+        </ul>
+
+        <button class="btn instructions">Read Instructions</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
